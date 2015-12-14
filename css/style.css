@@ -123,7 +123,7 @@ svg .estate,
 svg .gallery,
 svg .artist,
 svg .museum {
-  fill: white;
+  fill: black;
 }
 svg .food:hover {
   fill: #66ff99;
@@ -152,4 +152,8 @@ ul ol {
 ul ol li a {
   color: white;
   text-decoration: none;
+}
+.highlight {
+  fill: red;
+  color: red;
 }
