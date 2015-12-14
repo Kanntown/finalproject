@@ -146,18 +146,10 @@ svg .artist:hover {
 svg .museum:hover {
   fill: black;
 }
-svg path {
-  fill: blue;
-  stroke: blue;
-  stroke-width: 8;
+ul ol {
+  display: block;
 }
 ul ol li a {
   color: white;
   text-decoration: none;
-}
-ul ol li a:hover {
-  text-decoration: #00ccff;
-}
-.highlight {
-  color: red;
 }

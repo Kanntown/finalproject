@@ -4,15 +4,6 @@
     <meta charset="UTF-8" />
     <title>Final Project</title>
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="jquery.modal.css" type="text/css" media="screen" />
-    <script src="jquery.modal.js" type="text/javascript" charset="utf-8"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="css/tooltipster-light.css" />
-    <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.tooltip').tooltipster();
-        });
-    </script> -->
   </head>
 
   <body>
@@ -9701,6 +9692,7 @@
     <rect id="Museo-Vault" x="270.4" y="383.9" transform="matrix(-2.180166e-02 -0.9998 0.9998 -2.180166e-02 -121.6719 705.5663)" class="museum" width="27.8" height="56.8"/>
     <rect id="The-Wynwood-Walls" x="454.1" y="572.1" transform="matrix(-1.743022e-02 -0.9998 0.9998 -1.743022e-02 -125.899 1083.2347)" class="museum" width="30.4" height="62.8"/>
   </g>
+
   </svg>
 
 
@@ -9776,7 +9768,7 @@ $(document).ready(function(){
 
   $("button").click(function(){
     $("#mapList").toggle();
-  })
+  });
 
   $("#food, #museum, #artist, #estate, #cinema, #gallery, #event").hide();
   $("#artList, #barList, #museumList, #eventList, #studioList, #cinemaList, #estateList").hide();
@@ -9789,11 +9781,27 @@ $(document).ready(function(){
     $("#gallery, #artList").toggle();
   })
 
-  $("museumComplexes").click(function(){
+  $("#museumComplexes").click(function(){
     $("#museum, #museumList").toggle();
   })
 
-})
+  $("#artistStudio").click(function(){
+    $("#artist, #studioList").toggle();
+  })
+
+  $("#realEstate").click(function(){
+    $("#estate, #estateList").toggle();
+  })
+
+  $("#cinemaPerform").click(function(){
+    $("#cinema, #cinemaList").toggle();
+  })
+
+  $("#eventVenue").click(function(){
+    $("#event, #eventList").toggle();
+  })
+
+});
 </script>
 
 </html>
