@@ -158,3 +158,6 @@ ul ol li a {
 ul ol li a:hover {
   text-decoration: #00ccff;
 }
+.highlight {
+  color: red;
+}

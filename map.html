@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <title>Final Project</title>
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/tooltipster-light.css" />
+    <link rel="stylesheet" href="jquery.modal.css" type="text/css" media="screen" />
+    <script src="jquery.modal.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/tooltipster-light.css" />
     <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.tooltip').tooltipster();
         });
-    </script>
+    </script> -->
   </head>
 
   <body>
@@ -9697,7 +9699,7 @@
     <polygon id="Bakehouse-Art-Complex" class="museum" points="65.7,152.8 67.7,208.4 133.7,207.5 133.7,151.6 	"/>
     <polygon id="Mitrani-Warehouse" class="museum" points="442.8,525.6 442.2,574.7 518.6,574.7 517.2,524.1 	"/>
     <rect id="Museo-Vault" x="270.4" y="383.9" transform="matrix(-2.180166e-02 -0.9998 0.9998 -2.180166e-02 -121.6719 705.5663)" class="museum" width="27.8" height="56.8"/>
-    <rect id="The-Wynwood-Walls" x="454.1" y="572.1" transform="matrix(-1.743022e-02 -0.9998 0.9998 -1.743022e-02 -125.899 1083.2347)" class="museum" text="I am the wynwood walls!" width="30.4" height="62.8"/>
+    <rect id="The-Wynwood-Walls" x="454.1" y="572.1" transform="matrix(-1.743022e-02 -0.9998 0.9998 -1.743022e-02 -125.899 1083.2347)" class="museum" width="30.4" height="62.8"/>
   </g>
   </svg>
 
@@ -9711,7 +9713,7 @@
 
       <ul>
       <li id="restaurantsBars">Restaurants and Bars</li>
-        <ol>
+        <ol id="barList">
           <li>Bardot: <a href="http://bardotmiami.com">bardotmiami.com</a></li>
           <li>Cafeina: <a href="http://www.cafeinamiami.com">cafeinamiami.com</a></li>
           <li>Concrete Beach Brewery: <a href="http://www.ConcreteBeachBrewery.com">ConcreteBeachBrewery.com</a></li>
@@ -9720,20 +9722,20 @@
           <li>Joey's: <a href="http://www.joeyswynwood.com">www.joeyswynwood.com</a></li>
         </ol>
       <li id="artGallery">Galleries</li>
-        <ol>
+        <ol id="artList">
           <li>Art Center Miami: <a href="http://www.artcenterwynwood.com">www.artcenterwynwood.com</a></li>
           <li>Ascaso Gallery: <a href="http://www.ascasogallery.com">www.ascasogallery.com</a></li>
           <li>Brisky Gallery: <a href="http://www.briskygallery.com">www.briskygallery.com</a></li>
           <li>Curator's Voice Art Projects: <a href="http://www.curatorsvoice.com">http://www.curatorsvoice.com</a></li>
         </ol>
       <li id="museumComplexes">Museum Complexes</li>
-        <ol>
+        <ol id="museumList">
           <li>Bakehouse Art Complex: <a href="http://www.bacfl.org">www.bacfl.org</a></li>
           <li>Mitrani Warehouse: <a href="http://www.mitraniwarehouse.com">www.mitraniwarehouse.com</a></li>
           <li>Museo Vault: <a href="http://www.museovault.com">www.museovault.com</a></li>
         </ol>
       <li id="artistStudio">Artist Studios</li>
-        <ol>
+        <ol id="studioList">
           <li>A. Dale Nally Studio: <a href="http://www.adalenally.com">adalenally.com</a></li>
           <li>Britto Central: <a href="http://www.britto.com">britto.com</a></li>
           <li>Paul Amundarain Studio: <a href="http://www.paulamundarain.com">paulamundarain.com</a></li>
@@ -9741,18 +9743,18 @@
           <li>William Betts Studio: <a href="http://www.williambetts.com">www.williambetts.com</a></li>
         </ol>
       <li id="realEstate">Real Estate</li>
-        <ol>
+        <ol id="estateList">
           <li>250 Wynwood: <a href="http://www.250wynwood.com">www.250wynwood.com</a></li>
           <li>Comras Company: <a href="http://www.comrascompany.com">www.comrascompany.com</a></li>
           <li>Cynergi: <a href="http://www.cynergylife.com">www.cynergylife.com</a></li>
         </ol>
       <li id="cinemaPerform">Cinema and Performance complexes</li>
-        <ol>
+        <ol id="cinemaList">
           <li>Miami Light Project: <a href="http://www.miamilightproject.com">www.miamilightproject.com</a></li>
           <li>O Cinema: <a href="http://www.o-cinema.org">www.o-cinema.org</a></li>
         </ol>
       <li id="eventVenue">Event Venues</li>
-        <ol>
+        <ol id="eventList">
           <li>Mana Production Village: <a href="http://www.manawynwood.com/">www.manawynwood.com</a></li>
           <li>Soho Studios: <a href="http://www.sohostudiosmiami.com">www.sohostudiosmiami.com</a></li>
           <li>The Space Miami: <a href="http://www.thespacemiami.com">www.thespacemiami.com</a></li>
@@ -9764,7 +9766,7 @@
 
 </body>
 
-<!-- <script src="js/map.js"></script> -->
+
 <script src="js/jquery-2.1.4.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -9776,7 +9778,20 @@ $(document).ready(function(){
     $("#mapList").toggle();
   })
 
+  $("#food, #museum, #artist, #estate, #cinema, #gallery, #event").hide();
+  $("#artList, #barList, #museumList, #eventList, #studioList, #cinemaList, #estateList").hide();
 
+  $("#restaurantsBars").click(function(){
+    $("#food, #barList").toggle();
+  })
+
+  $("#artGallery").click(function(){
+    $("#gallery, #artList").toggle();
+  })
+
+  $("museumComplexes").click(function(){
+    $("#museum, #museumList").toggle();
+  })
 
 })
 </script>
