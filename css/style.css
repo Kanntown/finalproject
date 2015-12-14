@@ -151,19 +151,6 @@ svg path {
   stroke: blue;
   stroke-width: 8;
 }
-abbr:after {
-  content: ": " attr(title);
-}
-.hovered {
-  fill: rgb(68,111,159);
-}
-.relation {
-  fill: orange;
-}
-#food,  #gallery, #museum, #artist, #event #estate, #cinema {
-  fill: #eeeeee;
-}
-
 ul ol li a {
   color: white;
   text-decoration: none;
